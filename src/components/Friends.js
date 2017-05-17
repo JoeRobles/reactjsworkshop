@@ -26,9 +26,7 @@ class Friends extends Component {
     var newFavorites = this.state.favorites.slice(); //copy array
     newFavorites.splice(this.state.favorites.indexOf(event.target.value), 1); //remove element
 
-    this.setState({
-      favorites: newFavorites
-    });
+    this.setState({favorites: newFavorites});
   }
 
   updateFriendName(event) {
@@ -39,9 +37,7 @@ class Friends extends Component {
     var newFriends = this.state.friends.slice(); //copy array
     newFriends.splice(this.state.friends.indexOf(event.target.value), 1); //remove element
 
-    this.setState({
-      friends: newFriends
-    });
+    this.setState({friends: newFriends});
   }
 
   render() {
