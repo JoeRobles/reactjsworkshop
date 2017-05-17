@@ -15,8 +15,7 @@ class Friends extends Component {
   }
 
   addFriend() {
-    this.setState({friends: this.state.friends.concat(this.state.friend)});
-    this.setState({friend: ''});
+    this.setState({friends: this.state.friends.concat(this.state.friend), friend: ''});
   }
 
   addToFav(event) {
