@@ -44,3 +44,10 @@
 .friends-list li button {
     margin-left: 20px;
 }
+
+.remove-friend {
+    background: url("../public/remove.png");
+    border: none;
+    height: 12px;
+    width: 12px;
+}

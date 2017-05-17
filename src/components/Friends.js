@@ -11,31 +11,37 @@ class Friends extends Component {
     this.addToFav = this.addToFav.bind(this);
     this.removeFromFav = this.removeFromFav.bind(this);
     this.updateFriendName = this.updateFriendName.bind(this);
+    this.removeFriend = this.removeFriend.bind(this);
   }
 
   addFriend() {
-    console.log("Friend added" + this.state.friend);
     this.setState({friends: this.state.friends.concat(this.state.friend)});
   }
 
   addToFav(event) {
-    console.log("Added to Fav" + event.target.value);
     this.setState({favorites: this.state.favorites.concat(event.target.value)});
   }
 
   removeFromFav(event) {
-    console.log("Removed from Fav");
-    console.log(event.target.value);
     var newFavorites = this.state.favorites.slice(); //copy array
     newFavorites.splice(this.state.favorites.indexOf(event.target.value), 1); //remove element
 
     this.setState({
       favorites: newFavorites
-    })
+    });
   }
 
   updateFriendName(event) {
     this.setState({friend: event.target.value});
+  }
+
+  removeFriend(event) {
+    var newFriends = this.state.friends.slice(); //copy array
+    newFriends.splice(this.state.friends.indexOf(event.target.value), 1); //remove element
+
+    this.setState({
+      friends: newFriends
+    });
   }
 
   render() {
@@ -66,6 +72,7 @@ class Friends extends Component {
                         <button onClick={this.addToFav} value={friend}>Add</button> :
                         <button onClick={this.removeFromFav} value={friend}>Remove</button>
                     }
+                    <button onClick={this.removeFriend} value={friend} className="remove-friend"></button>
                   </li>
               );
             })
