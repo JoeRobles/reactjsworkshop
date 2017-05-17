@@ -48,7 +48,11 @@ class Friends extends Component {
             type="text"
             onChange={this.updateFriendName}
             value={this.state.friend}/>
-          <button onClick={this.addFriend}>Add</button>
+          {
+            (this.state.friends.indexOf(this.state.friend) === -1) ?
+              <button onClick={this.addFriend}>Add</button> :
+              null
+          }
         </p>
         <h3>Friends</h3>
         <ul className="friends-list">
