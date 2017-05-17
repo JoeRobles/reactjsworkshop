@@ -36,8 +36,12 @@ class Friends extends Component {
   removeFriend(event) {
     var newFriends = this.state.friends.slice(); //copy array
     newFriends.splice(this.state.friends.indexOf(event.target.value), 1); //remove element
+    var newFavorites = this.state.favorites.slice(); //copy array
+    if (this.state.favorites.indexOf(event.target.value) !== -1) {
+      newFavorites.splice(this.state.favorites.indexOf(event.target.value), 1); //remove element
+    }
 
-    this.setState({friends: newFriends});
+    this.setState({friends: newFriends, favorites: newFavorites});
   }
 
   render() {
