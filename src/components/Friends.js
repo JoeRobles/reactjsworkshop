@@ -6,16 +6,22 @@ class Friends extends Component {
     super(props);
     this.friends = ["Joe", "Rodrigo","Isaac", "Luis", "Erick"];
     this.favorites = ["Luis", "Erick"];
-    this.state = {friend: '', friends: this.friends, favorites: this.favorites};
+    this.state = {friend: '', friends: this.friends, favorites: this.favorites, toFavorites: false};
     this.addFriend = this.addFriend.bind(this);
     this.addToFav = this.addToFav.bind(this);
     this.removeFromFav = this.removeFromFav.bind(this);
     this.updateFriendName = this.updateFriendName.bind(this);
     this.removeFriend = this.removeFriend.bind(this);
+    this.updateToFavorites = this.updateToFavorites.bind(this);
   }
 
   addFriend() {
-    this.setState({friends: this.state.friends.concat(this.state.friend), friend: ''});
+    if (this.state.friend !== '') {
+      if (this.state.toFavorites) {
+        this.setState({favorites: this.state.favorites.concat(this.state.friend)});
+      }
+      this.setState({friends: this.state.friends.concat(this.state.friend), friend: ''});
+    }
   }
 
   addToFav(event) {
@@ -44,6 +50,10 @@ class Friends extends Component {
     this.setState({friends: newFriends, favorites: newFavorites});
   }
 
+  updateToFavorites(event) {
+    this.setState({toFavorites: event.target.checked});
+  }
+
   render() {
 
     return (
@@ -59,6 +69,13 @@ class Friends extends Component {
               <button onClick={this.addFriend}>Add</button> :
               null
           }
+          <input
+            id="to-favorites"
+            type="checkbox"
+            onChange={this.updateToFavorites}
+            checked={this.state.toFavorites}/>
+          <label
+            htmlFor="to-favorites">To favorites</label>
         </p>
         <h3>Friends</h3>
         <ul className="friends-list">
