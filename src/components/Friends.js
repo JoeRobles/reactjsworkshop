@@ -6,7 +6,8 @@ class Friends extends Component {
     super(props);
     this.friends = ["Joe", "Rodrigo","Isaac", "Luis", "Erick"];
     this.favorites = ["Luis", "Erick"];
-    this.state = {friend: '', friends: this.friends, favorites: this.favorites, toFavorites: false};
+    this.toFavorites = false;
+    this.state = {friend: '', friends: this.friends, favorites: this.favorites, toFavorites: this.favorites};
     this.addFriend = this.addFriend.bind(this);
     this.addToFav = this.addToFav.bind(this);
     this.removeFromFav = this.removeFromFav.bind(this);
