@@ -4,10 +4,18 @@ class Friends extends Component {
 
   constructor(props) {
     super(props);
+
     this.friends = ["Joe", "Rodrigo","Isaac", "Luis", "Erick"];
     this.favorites = ["Luis", "Erick"];
     this.toFavorites = false;
-    this.state = {friend: '', friends: this.friends, favorites: this.favorites, toFavorites: this.favorites};
+
+    this.state = {
+      friend: '',
+      friends: this.friends,
+      favorites: this.favorites,
+      toFavorites: this.favorites
+    };
+
     this.addFriend = this.addFriend.bind(this);
     this.addToFav = this.addToFav.bind(this);
     this.removeFromFav = this.removeFromFav.bind(this);
@@ -21,7 +29,10 @@ class Friends extends Component {
       if (this.state.toFavorites) {
         this.setState({favorites: this.state.favorites.concat(this.state.friend)});
       }
-      this.setState({friends: this.state.friends.concat(this.state.friend), friend: ''});
+      this.setState({
+        friends: this.state.friends.concat(this.state.friend),
+        friend: ''
+      });
     }
   }
 
@@ -30,8 +41,8 @@ class Friends extends Component {
   }
 
   removeFromFav(event) {
-    var newFavorites = this.state.favorites.slice(); //copy array
-    newFavorites.splice(this.state.favorites.indexOf(event.target.value), 1); //remove element
+    var newFavorites = this.state.favorites.slice();
+    newFavorites.splice(this.state.favorites.indexOf(event.target.value), 1);
 
     this.setState({favorites: newFavorites});
   }
@@ -41,14 +52,18 @@ class Friends extends Component {
   }
 
   removeFriend(event) {
-    var newFriends = this.state.friends.slice(); //copy array
-    newFriends.splice(this.state.friends.indexOf(event.target.value), 1); //remove element
-    var newFavorites = this.state.favorites.slice(); //copy array
+    var newFriends = this.state.friends.slice();
+    newFriends.splice(this.state.friends.indexOf(event.target.value), 1);
+    var newFavorites = this.state.favorites.slice();
+
     if (this.state.favorites.indexOf(event.target.value) !== -1) {
-      newFavorites.splice(this.state.favorites.indexOf(event.target.value), 1); //remove element
+      newFavorites.splice(this.state.favorites.indexOf(event.target.value), 1);
     }
 
-    this.setState({friends: newFriends, favorites: newFavorites});
+    this.setState({
+      friends: newFriends,
+      favorites: newFavorites
+    });
   }
 
   updateToFavorites(event) {
