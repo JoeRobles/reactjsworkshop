@@ -1,0 +1,46 @@
+.app {
+    text-align: center;
+}
+
+.app-logo {
+    animation: app-logo-spin infinite 20s linear;
+    height: 80px;
+}
+
+.app-header {
+    background-color: #222;
+    color: white;
+    height: 150px;
+    padding: 20px;
+}
+
+.app-intro {
+    display: block;
+    font-size: large;
+    margin: 0 auto;
+    text-align: justify;
+    width: 60%;
+}
+
+@keyframes app-logo-spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.friends-list {
+    list-style: circle inside;
+    margin: 0.5em;
+    padding-left: 0;
+}
+
+.favorites-list li {
+    list-style-image: url("../public/star.png");
+}
+
+.friends-list li button {
+    margin-left: 20px;
+}
